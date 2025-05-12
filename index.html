@@ -7,21 +7,18 @@
 <body>
   <h1>Демо-страница с виджетом</h1>
 
-  <script src="https://cdn.jsdelivr.net/gh/Consta8/widget-oa/dist/widget/widget.iife.js"></script>
+  <!-- Скрипт с самого виджета -->
+  <script src="https://cdn.jsdelivr.net/gh/Consta8/widget-oa/widget/widget.iife.js"></script>
+
+  <!-- Инициализация -->
   <script>
-    window.initWidgetPlatform({
+    window.initWidgetPlatform?.({
       id: "Consta8",
       displayType: "popup",
+      buttonMargin: "1rem",
       iframeWidth: "400px",
       iframeHeight: "600px"
     });
   </script>
 </body>
 </html>
-<script src="https://cdn.jsdelivr.net/gh/Consta8/widget-oa/widget/widget.iife.js"></script>
-<script>
-  window.initWidgetPlatform({
-    id: "Consta8",
-    displayType: "popup"
-  });
-</script>
