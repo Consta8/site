@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Чат-виджет</title>
+  <style>
+    html, body {
+      height: 100%%;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+    }
+    #widget-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%%;
+      width: 100%%;
+      background-color: #ffffff;
+    }
+    #header {
+      background-color: #2563eb;
+      color: white;
+      padding: 0.75rem;
+      text-align: center;
+      font-weight: bold;
+    }
+    #messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      background-color: #f9f9f9;
+    }
+    .message {
+      margin: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 1rem;
+      max-width: 60%%;
+      line-height: 1.4;
+    }
+    .bot {
+      background-color: #e5e5ea;
+      color: #000;
+      align-self: flex-start;
+    }
+    .user {
+      background-color: #2563eb;
+      color: #fff;
+      align-self: flex-end;
+    }
+    #input-area {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+    #input-area input {
+      flex: 1;
+      border: none;
+      padding: 0.75rem;
+      font-size: 1rem;
+    }
+    #input-area input:focus {
+      outline: none;
+    }
+    #input-area button {
+      border: none;
+      background-color: #2563eb;
+      color: white;
+      padding: 0 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    #input-area button:hover {
+      background-color: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+  <div id="widget-container">
+    <div id="header">Чат-виджет</div>
+    <div id="messages"></div>
+    <div id="input-area">
+      <input type="text" id="chat-input" placeholder="Введите сообщение..." />
+      <button id="send-btn">Отправить</button>
+    </div>
+  </div>
+  <script>
+    const messagesEl = document.getElementById('messages');
+    const inputEl = document.getElementById('chat-input');
+    const buttonEl = document.getElementById('send-btn');
+    function appendMessage(text, className) {
+      const msgDiv = document.createElement('div');
+      msgDiv.textContent = text;
+      msgDiv.classList.add('message', className);
+      messagesEl.appendChild(msgDiv);
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+    function sendMessage() {
+      const text = inputEl.value.trim();
+      if (!text) return;
+      appendMessage(text, 'user');
+      inputEl.value = '';
+      setTimeout(() => appendMessage('Это ответ локального ассистента.', 'bot'), 1000);
+    }
+    buttonEl.addEventListener('click', sendMessage);
+    inputEl.addEventListener('keydown', e => e.key === 'Enter' && sendMessage());
+  </script>
+</body>
+</html>
