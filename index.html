@@ -1,39 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <title>Microdose Widget Demo</title>
+  <meta charset="UTF-8">
+  <title>Демо-страница с виджетом</title>
 </head>
 <body>
   <h1>Демо-страница с виджетом</h1>
-
-  <!-- Скрипт с самого виджета -->
-  <script src="https://cdn.jsdelivr.net/gh/Consta8/widget-oa/widget/widget.iife.js"></script>
-
-  <!-- Инициализация -->
+  <script src="widget/widget.iife.js"></script>
   <script>
-    window.initWidgetPlatform?.({
-      id: "Consta8",
-      displayType: "popup",
+    initWidgetPlatform({
+      id: "DemoUser",
       buttonMargin: "1rem",
+      buttonSize: "3.5rem",
+      buttonBackgroundColor: "#2563eb",
+      buttonColor: "white",
       iframeWidth: "400px",
       iframeHeight: "600px"
     });
   </script>
-
-<!-- Подключаем локальный чат-виджет -->
-<script src="widget/widget.iife.js"></script>
-<script>
-  initWidgetPlatform({
-    id: "DemoUser",
-    buttonMargin: "1rem",
-    buttonSize: "3.5rem",
-    buttonBackgroundColor: "#2563eb",
-    buttonColor: "white",
-    iframeWidth: "400px",
-    iframeHeight: "600px"
-  });
-</script>
-
 </body>
 </html>
